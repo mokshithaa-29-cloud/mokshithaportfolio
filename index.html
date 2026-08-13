@@ -1,180 +1,584 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>A. Mokshitha - Portfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>A. Mokshitha | AI Portfolio</title>
+
+    <meta name="description"
+          content="Portfolio of A. Mokshitha, a B.Tech student at Sai University interested in Artificial Intelligence, technology and creative digital experiences.">
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
             margin: 0;
-            background-color: #f4f4f4;
-            color: #222;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        header {
-            background-color: #111;
-            color: white;
-            text-align: center;
-            padding: 40px;
+        html {
+            scroll-behavior: smooth;
         }
 
-        header h1 {
-            font-size: 40px;
-            margin-bottom: 10px;
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f0e8;
+            color: #111;
+            overflow-x: hidden;
         }
 
-        header p {
-            font-size: 18px;
-        }
-
+        /* NAVBAR */
         nav {
-            background-color: #333;
-            text-align: center;
-            padding: 15px;
+            background: #c8ff00;
+            border-bottom: 10px solid #111;
+            padding: 25px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 1000;
+            letter-spacing: -2px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 35px;
         }
 
         nav a {
-            color: white;
             text-decoration: none;
-            margin: 20px;
+            color: #111;
+            font-weight: 900;
+            font-size: 18px;
         }
 
         nav a:hover {
-            color: yellow;
+            color: #ff3131;
         }
 
-        section {
-            width: 80%;
-            margin: 30px auto;
-            background-color: white;
-            padding: 30px;
-            border: 2px solid #222;
+        /* HERO */
+        .hero {
+            min-height: 90vh;
+            padding: 80px 5%;
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 50px;
+            align-items: center;
         }
 
-        h2 {
-            color: #333;
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
+        .hero h1 {
+            font-size: clamp(70px, 10vw, 150px);
+            line-height: 0.78;
+            font-weight: 1000;
+            letter-spacing: -8px;
         }
 
-        ul {
-            line-height: 2;
+        .hero h1 span {
+            color: #ff3131;
         }
 
-        .skills {
+        .hero-text {
+            margin-top: 45px;
+            font-size: 22px;
+            font-weight: 700;
+            line-height: 1.5;
+            max-width: 700px;
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
         }
 
-        .skill {
-            background-color: #222;
+        .btn {
+            display: inline-block;
+            padding: 18px 28px;
+            background: #111;
             color: white;
-            padding: 10px 20px;
+            text-decoration: none;
+            font-weight: 900;
+            border: 4px solid #111;
+            box-shadow: 8px 8px 0 #ff3131;
         }
 
-        .hobbies {
+        .btn:hover {
+            background: #c8ff00;
+            color: #111;
+            transform: translate(4px, 4px);
+            box-shadow: 4px 4px 0 #ff3131;
+        }
+
+        /* TERMINAL */
+        .terminal-wrapper {
+            position: relative;
+        }
+
+        .terminal {
+            background: #111;
+            color: #c8ff00;
+            padding: 35px;
+            border: 5px solid #111;
+            box-shadow: 15px 15px 0 #ff3131;
+            transform: rotate(2deg);
+        }
+
+        .terminal h2 {
+            font-size: 30px;
+            margin-bottom: 30px;
+        }
+
+        .terminal-screen {
+            border: 3px solid white;
+            padding: 25px;
+            background: #222;
+            font-family: "Courier New", monospace;
+            line-height: 2;
+            font-size: 16px;
+        }
+
+        .cursor {
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        /* SECTIONS */
+        section {
+            padding: 100px 5%;
+            border-top: 10px solid #111;
+        }
+
+        .section-title {
+            font-size: clamp(50px, 8vw, 110px);
+            font-weight: 1000;
+            line-height: 0.85;
+            margin-bottom: 60px;
+            letter-spacing: -5px;
+        }
+
+        .section-title span {
+            color: #ff3131;
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border: 5px solid #111;
+            padding: 35px;
+            box-shadow: 12px 12px 0 #111;
+        }
+
+        .card h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .card p {
+            font-size: 20px;
+            line-height: 1.6;
+            font-weight: 600;
+        }
+
+        /* SKILLS */
+        .skills {
             display: flex;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 18px;
+        }
+
+        .skill {
+            background: #c8ff00;
+            border: 4px solid #111;
+            padding: 18px 25px;
+            font-size: 20px;
+            font-weight: 1000;
+            box-shadow: 6px 6px 0 #111;
+        }
+
+        .skill:nth-child(even) {
+            background: #ff3131;
+            color: white;
+        }
+
+        /* PROJECTS */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+        }
+
+        .project {
+            background: #111;
+            color: white;
+            padding: 35px;
+            border: 5px solid #111;
+            box-shadow: 12px 12px 0 #c8ff00;
+        }
+
+        .project h3 {
+            font-size: 35px;
+            color: #c8ff00;
+            margin-bottom: 20px;
+        }
+
+        .project p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        /* HOBBIES */
+        .hobbies {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
         }
 
         .hobby {
-            background-color: #ddd;
-            padding: 20px;
-            border: 1px solid #333;
+            min-height: 250px;
+            padding: 35px;
+            border: 5px solid #111;
+            background: #ff3131;
+            color: white;
+            box-shadow: 12px 12px 0 #111;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
+        .hobby:nth-child(2) {
+            background: #c8ff00;
+            color: #111;
+        }
+
+        .hobby-number {
+            font-size: 25px;
+            font-weight: 1000;
+        }
+
+        .hobby h3 {
+            font-size: 55px;
+            font-weight: 1000;
+        }
+
+        /* CONTACT */
+        .contact-box {
+            background: #c8ff00;
+            border: 6px solid #111;
+            padding: 50px;
+            box-shadow: 15px 15px 0 #ff3131;
+        }
+
+        .contact-box h3 {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .contact-box p {
+            font-size: 21px;
+            font-weight: 700;
+            line-height: 1.7;
+        }
+
+        /* FOOTER */
         footer {
-            background-color: #111;
+            background: #111;
             color: white;
+            padding: 40px 5%;
             text-align: center;
-            padding: 20px;
+            border-top: 10px solid #ff3131;
+        }
+
+        footer p {
+            font-weight: 700;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            nav a {
+                font-size: 14px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                padding-top: 60px;
+            }
+
+            .hero h1 {
+                font-size: 75px;
+                letter-spacing: -5px;
+            }
+
+            .hero-text {
+                font-size: 18px;
+            }
+
+            .about-grid,
+            .projects,
+            .hobbies {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 60px;
+            }
+
+            .terminal {
+                transform: none;
+            }
+
+            .terminal-screen {
+                font-size: 13px;
+            }
+
+            .hobby h3 {
+                font-size: 42px;
+            }
         }
     </style>
 </head>
 
 <body>
 
-    <!-- Header -->
-    <header>
-        <h1>A. Mokshitha</h1>
-        <p>B.Tech Student | Computing and Data Science</p>
-    </header>
-
-    <!-- Navigation -->
+    <!-- NAVIGATION -->
     <nav>
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#skills">Skills</a>
-        <a href="#hobbies">Hobbies</a>
-        <a href="#contact">Contact</a>
-    </nav>
-
-    <!-- About -->
-    <section id="about">
-        <h2>About Me</h2>
-
-        <p>
-            Hello! I am A. Mokshitha. I am a B.Tech student
-            studying Computing and Data Science. I am interested
-            in programming and technology. I like learning new
-            skills and improving my knowledge.
-        </p>
-    </section>
-
-    <!-- Education -->
-    <section id="education">
-        <h2>Education</h2>
+        <div class="logo">A.MOKSHITHA_AI</div>
 
         <ul>
-            <li>B.Tech - Computing and Data Science</li>
-            <li>Amaravathi Junior College</li>
-            <li>Bhashyam High School</li>
+            <li><a href="#about">ABOUT</a></li>
+            <li><a href="#skills">SKILLS</a></li>
+            <li><a href="#projects">PROJECTS</a></li>
+            <li><a href="#contact">CONTACT</a></li>
         </ul>
+    </nav>
+
+
+    <!-- HERO -->
+    <header class="hero">
+
+        <div>
+            <h1>
+                BUILD<br>
+                <span>SMART</span><br>
+                STUFF.
+            </h1>
+
+            <p class="hero-text">
+                Hello! I'm <strong>A. Mokshitha</strong> — a B.Tech student
+                at <strong>Sai University</strong> interested in Artificial
+                Intelligence, technology, creativity and digital experiences.
+            </p>
+
+            <div class="hero-buttons">
+                <a href="#about" class="btn">EXPLORE ME →</a>
+                <a href="#contact" class="btn">CONTACT</a>
+            </div>
+        </div>
+
+
+        <!-- AI TERMINAL -->
+        <div class="terminal-wrapper">
+            <div class="terminal">
+
+                <h2>AI_SYSTEM.exe</h2>
+
+                <div class="terminal-screen">
+                    &gt; initializing portfolio...<br>
+                    &gt; USER: A. MOKSHITHA<br>
+                    &gt; STATUS: STUDENT<br>
+                    &gt; UNIVERSITY: SAI UNIVERSITY<br>
+                    &gt; INTEREST: ARTIFICIAL INTELLIGENCE<br>
+                    &gt; CREATIVITY: 100%<br>
+                    &gt; HOBBY_01: BADMINTON<br>
+                    &gt; HOBBY_02: DANCING<br>
+                    &gt; STATUS: BUILDING THE FUTURE<span class="cursor">_</span>
+                </div>
+
+            </div>
+        </div>
+
+    </header>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <h2 class="section-title">
+            ABOUT<br><span>ME.</span>
+        </h2>
+
+        <div class="about-grid">
+
+            <div class="card">
+                <h3>WHO AM I?</h3>
+
+                <p>
+                    I'm <strong>A. Mokshitha</strong>, a B.Tech student
+                    at Sai University. I am passionate about learning
+                    technology and exploring the possibilities of
+                    Artificial Intelligence.
+                </p>
+            </div>
+
+            <div class="card">
+                <h3>MY APPROACH</h3>
+
+                <p>
+                    I enjoy learning new concepts, solving problems,
+                    experimenting with technology and combining
+                    creativity with technical skills to create useful
+                    digital experiences.
+                </p>
+            </div>
+
+        </div>
+
     </section>
 
-    <!-- Skills -->
+
+    <!-- SKILLS -->
     <section id="skills">
-        <h2>Skills</h2>
+
+        <h2 class="section-title">
+            MY<br><span>SKILLS.</span>
+        </h2>
 
         <div class="skills">
-            <div class="skill">C</div>
-            <div class="skill">Python</div>
+
+            <div class="skill">PYTHON</div>
             <div class="skill">HTML</div>
             <div class="skill">CSS</div>
+            <div class="skill">JAVASCRIPT</div>
+            <div class="skill">ARTIFICIAL INTELLIGENCE</div>
+            <div class="skill">PROBLEM SOLVING</div>
+            <div class="skill">CREATIVITY</div>
+            <div class="skill">TEAMWORK</div>
+
         </div>
+
     </section>
 
-    <!-- Achievement -->
+
+    <!-- PROJECTS -->
+    <section id="projects">
+
+        <h2 class="section-title">
+            MY<br><span>PROJECTS.</span>
+        </h2>
+
+        <div class="projects">
+
+            <div class="project">
+                <h3>01 / AI PORTFOLIO</h3>
+
+                <p>
+                    A brutalist-style personal portfolio designed
+                    using HTML and CSS. The website presents my
+                    education, skills, interests and personality
+                    through a bold AI-inspired interface.
+                </p>
+            </div>
+
+            <div class="project">
+                <h3>02 / WEB DESIGN</h3>
+
+                <p>
+                    Responsive web design projects created while
+                    learning frontend development, focusing on
+                    clean layouts, usability and creative visual
+                    design.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HOBBIES -->
     <section>
-        <h2>Achievement</h2>
 
-        <p>
-            Batmation First
-        </p>
-    </section>
-
-    <!-- Hobbies -->
-    <section id="hobbies">
-        <h2>Hobbies</h2>
+        <h2 class="section-title">
+            WHAT I<br><span>LOVE.</span>
+        </h2>
 
         <div class="hobbies">
-            <div class="hobby">Dancing</div>
-            <div class="hobby">Singing</div>
+
+            <div class="hobby">
+                <div class="hobby-number">01 / HOBBY</div>
+                <h3>🏸 BADMINTON</h3>
+            </div>
+
+            <div class="hobby">
+                <div class="hobby-number">02 / HOBBY</div>
+                <h3>💃 DANCING</h3>
+            </div>
+
         </div>
+
     </section>
 
-    <!-- Contact -->
+
+    <!-- CONTACT -->
     <section id="contact">
-        <h2>Contact</h2>
 
-        <p>Email: your-email@example.com</p>
+        <h2 class="section-title">
+            LET'S<br><span>CONNECT.</span>
+        </h2>
+
+        <div class="contact-box">
+
+            <h3>A. MOKSHITHA</h3>
+
+            <p>
+                B.Tech Student<br>
+                Sai University<br><br>
+
+                Interested in Artificial Intelligence,
+                technology, web development and creative
+                digital experiences.
+            </p>
+
+        </div>
+
     </section>
 
-    <!-- Footer -->
+
+    <!-- FOOTER -->
     <footer>
-        <p>© 2026 A. Mokshitha</p>
+        <p>© 2026 A. Mokshitha — BUILT WITH HTML + CSS + AI ENERGY.</p>
     </footer>
+
 
 </body>
 </html>
