@@ -4,12 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>A. Mokshitha | AI Portfolio</title>
+    <title>A. Mokshitha | Portfolio</title>
 
     <meta name="description"
-          content="Portfolio of A. Mokshitha, a B.Tech student at Sai University interested in Artificial Intelligence, technology and creative digital experiences.">
+        content="Portfolio of A. Mokshitha, a B.Tech student at Sai University interested in technology, creativity, badminton and dancing.">
 
     <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
         * {
             margin: 0;
             padding: 0;
@@ -23,324 +28,490 @@
         body {
             font-family: Arial, Helvetica, sans-serif;
             background: #f4f0e8;
-            color: #111;
+            color: #111111;
             overflow-x: hidden;
         }
 
-        /* NAVBAR */
+
+        /* =========================
+           COLORS
+        ========================= */
+
+        :root {
+            --black: #111111;
+            --red: #ff3030;
+            --lime: #d7ff00;
+            --cream: #f4f0e8;
+            --white: #ffffff;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
         nav {
-            background: #c8ff00;
-            border-bottom: 10px solid #111;
-            padding: 25px 5%;
+            width: 100%;
+            background: var(--lime);
+            border-bottom: 10px solid var(--black);
+
             display: flex;
             justify-content: space-between;
             align-items: center;
+
+            padding: 25px 5%;
+
             position: sticky;
             top: 0;
             z-index: 1000;
         }
 
         .logo {
-            font-size: 28px;
+            font-size: 30px;
             font-weight: 1000;
             letter-spacing: -2px;
         }
 
         nav ul {
-            display: flex;
             list-style: none;
-            gap: 35px;
+            display: flex;
+            gap: 40px;
         }
 
         nav a {
+            color: var(--black);
             text-decoration: none;
-            color: #111;
+            font-size: 20px;
             font-weight: 900;
-            font-size: 18px;
         }
 
         nav a:hover {
-            color: #ff3131;
+            color: var(--red);
         }
 
-        /* HERO */
+
+        /* =========================
+           HERO
+        ========================= */
+
         .hero {
             min-height: 90vh;
-            padding: 80px 5%;
+
             display: grid;
             grid-template-columns: 1.1fr 0.9fr;
+
             gap: 50px;
+
             align-items: center;
+
+            padding: 90px 5%;
         }
 
-        .hero h1 {
+
+        /* BIG TEXT */
+
+        .hero-title {
             font-size: clamp(70px, 10vw, 150px);
-            line-height: 0.78;
             font-weight: 1000;
+
+            line-height: 0.82;
+
             letter-spacing: -8px;
+
+            text-transform: uppercase;
         }
 
-        .hero h1 span {
-            color: #ff3131;
+        .hero-title .red {
+            color: var(--red);
         }
 
-        .hero-text {
+        .hero-title .black {
+            color: var(--black);
+        }
+
+
+        /* DESCRIPTION */
+
+        .hero-description {
             margin-top: 45px;
-            font-size: 22px;
-            font-weight: 700;
-            line-height: 1.5;
+
+            font-size: 23px;
+
+            line-height: 1.4;
+
             max-width: 700px;
+
+            font-weight: 700;
         }
+
+
+        /* BUTTON */
 
         .hero-buttons {
-            margin-top: 30px;
             display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
+            gap: 20px;
+
+            margin-top: 35px;
         }
 
         .btn {
             display: inline-block;
-            padding: 18px 28px;
-            background: #111;
+
+            background: var(--black);
             color: white;
+
+            padding: 18px 30px;
+
             text-decoration: none;
+
+            font-size: 18px;
             font-weight: 900;
-            border: 4px solid #111;
-            box-shadow: 8px 8px 0 #ff3131;
+
+            border: 4px solid var(--black);
+
+            box-shadow: 8px 8px 0 var(--red);
+
+            transition: 0.2s;
         }
 
         .btn:hover {
-            background: #c8ff00;
-            color: #111;
-            transform: translate(4px, 4px);
-            box-shadow: 4px 4px 0 #ff3131;
+            transform: translate(5px, 5px);
+            box-shadow: 3px 3px 0 var(--red);
         }
 
-        /* TERMINAL */
-        .terminal-wrapper {
-            position: relative;
-        }
+
+        /* =========================
+           TERMINAL / PROFILE CARD
+        ========================= */
 
         .terminal {
-            background: #111;
-            color: #c8ff00;
+            background: var(--black);
+
+            color: var(--lime);
+
             padding: 35px;
-            border: 5px solid #111;
-            box-shadow: 15px 15px 0 #ff3131;
+
+            border: 5px solid var(--black);
+
+            box-shadow: 15px 15px 0 var(--red);
+
             transform: rotate(2deg);
         }
 
         .terminal h2 {
-            font-size: 30px;
+            font-family: "Courier New", monospace;
+
+            font-size: 35px;
+
             margin-bottom: 30px;
         }
 
         .terminal-screen {
-            border: 3px solid white;
+            border: 4px solid white;
+
             padding: 25px;
-            background: #222;
+
             font-family: "Courier New", monospace;
+
+            font-size: 17px;
+
             line-height: 2;
-            font-size: 16px;
+
+            background: #222222;
         }
 
-        .cursor {
-            animation: blink 1s infinite;
-        }
 
-        @keyframes blink {
-            50% {
-                opacity: 0;
-            }
-        }
+        /* =========================
+           SECTIONS
+        ========================= */
 
-        /* SECTIONS */
         section {
-            padding: 100px 5%;
-            border-top: 10px solid #111;
+            padding: 120px 5%;
         }
 
-        .section-title {
-            font-size: clamp(50px, 8vw, 110px);
+        .section-heading {
+            font-size: clamp(65px, 9vw, 130px);
+
             font-weight: 1000;
+
             line-height: 0.85;
+
+            letter-spacing: -7px;
+
             margin-bottom: 60px;
-            letter-spacing: -5px;
         }
 
-        .section-title span {
-            color: #ff3131;
+        .section-heading span {
+            color: var(--red);
         }
 
-        /* ABOUT */
+
+        /* =========================
+           ABOUT
+        ========================= */
+
         .about-grid {
             display: grid;
+
             grid-template-columns: 1fr 1fr;
+
             gap: 30px;
         }
 
-        .card {
+        .brutal-card {
             background: white;
-            border: 5px solid #111;
-            padding: 35px;
-            box-shadow: 12px 12px 0 #111;
+
+            border: 5px solid var(--black);
+
+            padding: 40px;
+
+            box-shadow: 12px 12px 0 var(--black);
         }
 
-        .card h3 {
-            font-size: 32px;
-            margin-bottom: 20px;
+        .brutal-card h3 {
+            font-size: 35px;
+
+            margin-bottom: 25px;
+
+            font-weight: 1000;
         }
 
-        .card p {
+        .brutal-card p {
             font-size: 20px;
+
             line-height: 1.6;
+
             font-weight: 600;
         }
 
-        /* SKILLS */
+
+        /* =========================
+           SKILLS
+        ========================= */
+
         .skills {
             display: flex;
+
             flex-wrap: wrap;
-            gap: 18px;
+
+            gap: 15px;
         }
 
         .skill {
-            background: #c8ff00;
-            border: 4px solid #111;
+            background: var(--lime);
+
+            border: 4px solid var(--black);
+
             padding: 18px 25px;
-            font-size: 20px;
+
+            font-size: 18px;
+
             font-weight: 1000;
-            box-shadow: 6px 6px 0 #111;
+
+            box-shadow: 6px 6px 0 var(--black);
+
+            transition: 0.2s;
         }
 
-        .skill:nth-child(even) {
-            background: #ff3131;
-            color: white;
+        .skill:hover {
+            transform: translate(4px, 4px);
+
+            box-shadow: 2px 2px 0 var(--black);
         }
 
-        /* PROJECTS */
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
         .projects {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 35px;
         }
 
         .project {
-            background: #111;
-            color: white;
-            padding: 35px;
-            border: 5px solid #111;
-            box-shadow: 12px 12px 0 #c8ff00;
+            background: white;
+
+            border: 5px solid var(--black);
+
+            padding: 40px;
+
+            box-shadow: 12px 12px 0 var(--red);
+
+            transition: 0.2s;
+        }
+
+        .project:hover {
+            transform: translateY(-8px);
         }
 
         .project h3 {
-            font-size: 35px;
-            color: #c8ff00;
+            font-size: 32px;
+
             margin-bottom: 20px;
+
+            font-weight: 1000;
         }
 
         .project p {
-            font-size: 18px;
+            font-size: 19px;
+
             line-height: 1.6;
+
+            font-weight: 600;
         }
 
-        /* HOBBIES */
+
+        /* =========================
+           HOBBIES
+        ========================= */
+
         .hobbies {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 30px;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 35px;
         }
 
         .hobby {
-            min-height: 250px;
-            padding: 35px;
-            border: 5px solid #111;
-            background: #ff3131;
+            min-height: 320px;
+
+            background: var(--black);
+
             color: white;
-            box-shadow: 12px 12px 0 #111;
+
+            border: 5px solid var(--black);
+
+            padding: 35px;
+
             display: flex;
+
             flex-direction: column;
+
             justify-content: space-between;
+
+            box-shadow: 15px 15px 0 var(--lime);
+
+            transition: 0.2s;
         }
 
-        .hobby:nth-child(2) {
-            background: #c8ff00;
-            color: #111;
+        .hobby:hover {
+            transform: translateY(-8px);
         }
 
         .hobby-number {
-            font-size: 25px;
+            color: var(--lime);
+
+            font-size: 20px;
+
             font-weight: 1000;
         }
 
         .hobby h3 {
-            font-size: 55px;
+            font-size: 50px;
+
+            line-height: 1;
+
             font-weight: 1000;
         }
 
-        /* CONTACT */
+
+        /* =========================
+           CONTACT
+        ========================= */
+
         .contact-box {
-            background: #c8ff00;
-            border: 6px solid #111;
-            padding: 50px;
-            box-shadow: 15px 15px 0 #ff3131;
+            background: var(--red);
+
+            border: 5px solid var(--black);
+
+            padding: 60px;
+
+            box-shadow: 15px 15px 0 var(--black);
         }
 
         .contact-box h3 {
-            font-size: 50px;
-            margin-bottom: 20px;
+            font-size: clamp(45px, 7vw, 90px);
+
+            font-weight: 1000;
+
+            margin-bottom: 25px;
         }
 
         .contact-box p {
-            font-size: 21px;
+            font-size: 22px;
+
+            line-height: 1.6;
+
             font-weight: 700;
-            line-height: 1.7;
         }
 
-        /* FOOTER */
+
+        /* =========================
+           FOOTER
+        ========================= */
+
         footer {
-            background: #111;
+            background: var(--black);
+
             color: white;
-            padding: 40px 5%;
+
+            padding: 35px 5%;
+
             text-align: center;
-            border-top: 10px solid #ff3131;
+
+            font-size: 18px;
+
+            font-weight: 800;
         }
 
-        footer p {
-            font-weight: 700;
-        }
 
-        /* MOBILE */
-        @media (max-width: 800px) {
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 850px) {
 
             nav {
                 flex-direction: column;
+
                 gap: 20px;
             }
 
             nav ul {
                 gap: 15px;
+
                 flex-wrap: wrap;
+
                 justify-content: center;
             }
 
             nav a {
-                font-size: 14px;
+                font-size: 15px;
             }
 
             .hero {
                 grid-template-columns: 1fr;
-                padding-top: 60px;
+
+                padding-top: 70px;
             }
 
-            .hero h1 {
+            .hero-title {
                 font-size: 75px;
+
                 letter-spacing: -5px;
             }
 
-            .hero-text {
+            .hero-description {
                 font-size: 18px;
+            }
+
+            .terminal {
+                transform: none;
             }
 
             .about-grid,
@@ -349,224 +520,417 @@
                 grid-template-columns: 1fr;
             }
 
-            .section-title {
-                font-size: 60px;
-            }
+            .section-heading {
+                font-size: 65px;
 
-            .terminal {
-                transform: none;
-            }
-
-            .terminal-screen {
-                font-size: 13px;
+                letter-spacing: -5px;
             }
 
             .hobby h3 {
-                font-size: 42px;
+                font-size: 38px;
             }
+
+            .contact-box {
+                padding: 35px;
+            }
+
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- NAVIGATION -->
+
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+
     <nav>
-        <div class="logo">A.MOKSHITHA_AI</div>
+
+        <div class="logo">
+            A.MOKSHITHA
+        </div>
 
         <ul>
-            <li><a href="#about">ABOUT</a></li>
-            <li><a href="#skills">SKILLS</a></li>
-            <li><a href="#projects">PROJECTS</a></li>
-            <li><a href="#contact">CONTACT</a></li>
+
+            <li>
+                <a href="#about">ABOUT</a>
+            </li>
+
+            <li>
+                <a href="#skills">SKILLS</a>
+            </li>
+
+            <li>
+                <a href="#projects">PROJECTS</a>
+            </li>
+
+            <li>
+                <a href="#contact">CONTACT</a>
+            </li>
+
         </ul>
+
     </nav>
 
 
-    <!-- HERO -->
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
     <header class="hero">
 
         <div>
-            <h1>
+
+            <h1 class="hero-title">
+
                 BUILD<br>
-                <span>SMART</span><br>
+
+                <span class="red">
+                    SMART
+                </span><br>
+
                 STUFF.
+
             </h1>
 
-            <p class="hero-text">
-                Hello! I'm <strong>A. Mokshitha</strong> — a B.Tech student
-                at <strong>Sai University</strong> interested in Artificial
-                Intelligence, technology, creativity and digital experiences.
+
+            <p class="hero-description">
+
+                Hello! I'm <strong>A. Mokshitha</strong> —
+                a B.Tech student at <strong>Sai University</strong>
+                interested in technology, creativity,
+                learning new things and building new experiences.
+
             </p>
 
+
             <div class="hero-buttons">
-                <a href="#about" class="btn">EXPLORE ME →</a>
-                <a href="#contact" class="btn">CONTACT</a>
+
+                <a href="#about" class="btn">
+                    EXPLORE ME →
+                </a>
+
+                <a href="#contact" class="btn">
+                    CONTACT
+                </a>
+
             </div>
+
         </div>
 
 
-        <!-- AI TERMINAL -->
-        <div class="terminal-wrapper">
-            <div class="terminal">
 
-                <h2>AI_SYSTEM.exe</h2>
+        <!-- PROFILE / TERMINAL -->
 
-                <div class="terminal-screen">
-                    &gt; initializing portfolio...<br>
-                    &gt; USER: A. MOKSHITHA<br>
-                    &gt; STATUS: STUDENT<br>
-                    &gt; UNIVERSITY: SAI UNIVERSITY<br>
-                    &gt; INTEREST: ARTIFICIAL INTELLIGENCE<br>
-                    &gt; CREATIVITY: 100%<br>
-                    &gt; HOBBY_01: BADMINTON<br>
-                    &gt; HOBBY_02: DANCING<br>
-                    &gt; STATUS: BUILDING THE FUTURE<span class="cursor">_</span>
-                </div>
+        <div class="terminal">
+
+            <h2>
+                PROFILE.exe
+            </h2>
+
+
+            <div class="terminal-screen">
+
+                &gt; initializing portfolio...<br>
+
+                &gt; USER: A. MOKSHITHA<br>
+
+                &gt; STATUS: B.TECH STUDENT<br>
+
+                &gt; UNIVERSITY: SAI UNIVERSITY<br>
+
+                &gt; INTEREST: TECHNOLOGY<br>
+
+                &gt; CREATIVITY: 100%<br>
+
+                &gt; HOBBY_01: BADMINTON PLAYER<br>
+
+                &gt; HOBBY_02: DANCING<br>
+
+                &gt; STATUS: BUILDING THE FUTURE<span>_</span>
 
             </div>
+
         </div>
 
     </header>
 
 
-    <!-- ABOUT -->
+
+    <!-- =========================
+         ABOUT
+    ========================= -->
+
     <section id="about">
 
-        <h2 class="section-title">
-            ABOUT<br><span>ME.</span>
+        <h2 class="section-heading">
+
+            ABOUT<br>
+
+            <span>ME.</span>
+
         </h2>
+
 
         <div class="about-grid">
 
-            <div class="card">
-                <h3>WHO AM I?</h3>
+
+            <div class="brutal-card">
+
+                <h3>
+                    WHO AM I?
+                </h3>
 
                 <p>
-                    I'm <strong>A. Mokshitha</strong>, a B.Tech student
-                    at Sai University. I am passionate about learning
-                    technology and exploring the possibilities of
-                    Artificial Intelligence.
+
+                    I'm <strong>A. Mokshitha</strong>,
+                    a B.Tech student at Sai University.
+                    I enjoy learning new concepts,
+                    exploring technology and developing
+                    creative ideas.
+
                 </p>
+
             </div>
 
-            <div class="card">
-                <h3>MY APPROACH</h3>
+
+            <div class="brutal-card">
+
+                <h3>
+                    MY APPROACH
+                </h3>
 
                 <p>
-                    I enjoy learning new concepts, solving problems,
-                    experimenting with technology and combining
-                    creativity with technical skills to create useful
-                    digital experiences.
+
+                    I believe in learning through
+                    creativity and experience.
+                    I enjoy trying new things,
+                    improving my skills and creating
+                    something meaningful.
+
                 </p>
+
             </div>
+
 
         </div>
 
     </section>
 
 
-    <!-- SKILLS -->
+
+    <!-- =========================
+         SKILLS
+    ========================= -->
+
     <section id="skills">
 
-        <h2 class="section-title">
-            MY<br><span>SKILLS.</span>
+        <h2 class="section-heading">
+
+            MY<br>
+
+            <span>SKILLS.</span>
+
         </h2>
+
 
         <div class="skills">
 
-            <div class="skill">PYTHON</div>
-            <div class="skill">HTML</div>
-            <div class="skill">CSS</div>
-            <div class="skill">JAVASCRIPT</div>
-            <div class="skill">ARTIFICIAL INTELLIGENCE</div>
-            <div class="skill">PROBLEM SOLVING</div>
-            <div class="skill">CREATIVITY</div>
-            <div class="skill">TEAMWORK</div>
+            <div class="skill">
+                PYTHON
+            </div>
+
+            <div class="skill">
+                HTML
+            </div>
+
+            <div class="skill">
+                CSS
+            </div>
+
+            <div class="skill">
+                JAVASCRIPT
+            </div>
+
+            <div class="skill">
+                PROBLEM SOLVING
+            </div>
+
+            <div class="skill">
+                CREATIVITY
+            </div>
+
+            <div class="skill">
+                INNOVATION
+            </div>
+
+            <div class="skill">
+                TEAMWORK
+            </div>
+
+            <div class="skill">
+                WEB DESIGN
+            </div>
 
         </div>
 
     </section>
 
 
-    <!-- PROJECTS -->
+
+    <!-- =========================
+         PROJECTS
+    ========================= -->
+
     <section id="projects">
 
-        <h2 class="section-title">
-            MY<br><span>PROJECTS.</span>
+        <h2 class="section-heading">
+
+            MY<br>
+
+            <span>PROJECTS.</span>
+
         </h2>
+
 
         <div class="projects">
 
-            <div class="project">
-                <h3>01 / AI PORTFOLIO</h3>
-
-                <p>
-                    A brutalist-style personal portfolio designed
-                    using HTML and CSS. The website presents my
-                    education, skills, interests and personality
-                    through a bold AI-inspired interface.
-                </p>
-            </div>
 
             <div class="project">
-                <h3>02 / WEB DESIGN</h3>
+
+                <h3>
+                    01 / PERSONAL PORTFOLIO
+                </h3>
 
                 <p>
-                    Responsive web design projects created while
-                    learning frontend development, focusing on
-                    clean layouts, usability and creative visual
-                    design.
+
+                    A brutalist personal portfolio website
+                    designed using HTML and CSS.
+                    The website presents my education,
+                    skills, interests and hobbies in
+                    a bold and creative design.
+
                 </p>
+
             </div>
+
+
+            <div class="project">
+
+                <h3>
+                    02 / WEB DESIGN
+                </h3>
+
+                <p>
+
+                    Responsive web design projects created
+                    while learning frontend development,
+                    focusing on creativity, usability
+                    and modern web experiences.
+
+                </p>
+
+            </div>
+
 
         </div>
 
     </section>
 
 
-    <!-- HOBBIES -->
+
+    <!-- =========================
+         HOBBIES
+    ========================= -->
+
     <section>
 
-        <h2 class="section-title">
-            WHAT I<br><span>LOVE.</span>
+        <h2 class="section-heading">
+
+            WHAT I<br>
+
+            <span>LOVE.</span>
+
         </h2>
+
 
         <div class="hobbies">
 
-            <div class="hobby">
-                <div class="hobby-number">01 / HOBBY</div>
-                <h3>🏸 BADMINTON</h3>
-            </div>
 
             <div class="hobby">
-                <div class="hobby-number">02 / HOBBY</div>
-                <h3>💃 DANCING</h3>
+
+                <div class="hobby-number">
+                    01 / HOBBY
+                </div>
+
+                <h3>
+
+                    🏸<br>
+                    BADMINTON<br>
+                    PLAYER
+
+                </h3>
+
             </div>
+
+
+            <div class="hobby">
+
+                <div class="hobby-number">
+                    02 / HOBBY
+                </div>
+
+                <h3>
+
+                    💃<br>
+                    DANCING
+
+                </h3>
+
+            </div>
+
 
         </div>
 
     </section>
 
 
-    <!-- CONTACT -->
+
+    <!-- =========================
+         CONTACT
+    ========================= -->
+
     <section id="contact">
 
-        <h2 class="section-title">
-            LET'S<br><span>CONNECT.</span>
+        <h2 class="section-heading">
+
+            LET'S<br>
+
+            <span>CONNECT.</span>
+
         </h2>
+
 
         <div class="contact-box">
 
-            <h3>A. MOKSHITHA</h3>
+            <h3>
+                A. MOKSHITHA
+            </h3>
 
             <p>
+
                 B.Tech Student<br>
+
                 Sai University<br><br>
 
-                Interested in Artificial Intelligence,
-                technology, web development and creative
-                digital experiences.
+                Interested in technology,
+                creativity, learning new things
+                and creating new experiences.
+
             </p>
 
         </div>
@@ -574,9 +938,16 @@
     </section>
 
 
-    <!-- FOOTER -->
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
     <footer>
-        <p>© 2026 A. Mokshitha — BUILT WITH HTML + CSS + AI ENERGY.</p>
+
+        © 2026 A. Mokshitha —
+        BUILT WITH HTML + CSS.
+
     </footer>
 
 
